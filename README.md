@@ -120,10 +120,9 @@ Network Monitor Pro is a comprehensive Chrome extension that provides enterprise
 
 ### Advanced Features
 1. **Monitoring Modes**: Switch between Chrome and device monitoring
-2. **Update Intervals**: Configure monitoring frequency (200ms - 2000ms)
-3. **Color Themes**: Choose between Yellow and White themes
-4. **Speed Monitoring**: Enable/disable real-time speed tracking
-5. **Popup Pinning**: Pin the extension popup to a separate window for continuous monitoring
+2. **Color Themes**: Choose between Yellow and White themes
+3. **Speed Monitoring**: Enable/disable real-time speed tracking
+4. **Popup Pinning**: Pin the extension popup to a separate window for continuous monitoring
 
 ## 🔧 Troubleshooting
 
