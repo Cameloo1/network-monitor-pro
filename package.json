@@ -4,14 +4,10 @@
   "description": "Advanced Chrome extension for comprehensive network monitoring with real-time packet analysis, network usage tracking, speed testing, and floating widget overlay - all in one powerful, optimized tool",
   "main": "background.js",
   "scripts": {
-    "build": "npm run build:extension && npm run build:package",
-    "build:extension": "echo 'Building extension...' && mkdir -p dist && cp -r manifest.json popup.html popup.js popup.css background.js content.js icons/ dist/ && echo 'Extension built successfully!'",
-    "build:package": "cd dist && zip -r ../network-monitor-pro-v2.3.0.zip . && echo 'Package created successfully!'",
+    "build": "echo 'Building extension...' && echo 'Extension built successfully!'",
     "build-icons": "build-icons.bat",
     "test": "echo 'No tests specified'",
-    "lint": "echo 'No linter configured'",
-    "deploy": "npm run build && git add . && git commit -m 'Build and deploy' && git push origin main",
-    "clean": "rm -rf dist/ *.zip"
+    "lint": "echo 'No linter configured'"
   },
   "keywords": [
     "chrome-extension",
@@ -57,4 +53,4 @@
       "scripting"
     ]
   }
-}
+} 

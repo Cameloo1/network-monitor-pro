@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        .icon-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .icon-display {
+            background: #ffd700;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a1a;
+            font-weight: bold;
+            text-transform: lowercase;
+        }
+        .icon-16 { width: 16px; height: 16px; font-size: 10px; }
+        .icon-32 { width: 32px; height: 32px; font-size: 18px; }
+        .icon-48 { width: 48px; height: 48px; font-size: 28px; }
+        .icon-128 { width: 128px; height: 128px; font-size: 72px; }
+        
+        .instructions {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .download-btn {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .download-btn:hover {
+            background: #005a87;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h2>Network Monitor Pro - Icon Generator</h2>
+        <p><strong>Instructions:</strong> Use this page to create the required PNG icons for your Chrome extension.</p>
+        <ol>
+            <li>Right-click on each icon below</li>
+            <li>Select "Save image as..."</li>
+            <li>Save with the exact filename shown (e.g., icon16.png)</li>
+            <li>Place all PNG files in the <code>icons</code> folder</li>
+            <li>After creating all icons, update the manifest.json to include them again</li>
+        </ol>
+        <p><strong>Alternative:</strong> You can also take screenshots of each icon and crop them to the exact size.</p>
+    </div>
+
+    <div class="icon-container">
+        <div class="icon">
+            <div class="icon-display icon-16">n</div>
+            <div>icon16.png (16x16)</div>
+            <button class="download-btn" onclick="downloadIcon(16)">Download 16x16</button>
+        </div>
+        
+        <div class="icon">
+            <div class="icon-display icon-32">n</div>
+            <div>icon32.png (32x32)</div>
+            <button class="download-btn" onclick="downloadIcon(32)">Download 32x32</button>
+        </div>
+        
+        <div class="icon">
+            <div class="icon-display icon-48">n</div>
+            <div>icon48.png (48x48)</div>
+            <button class="download-btn" onclick="downloadIcon(48)">Download 48x48</button>
+        </div>
+        
+        <div class="icon">
+            <div class="icon-display icon-128">n</div>
+            <div>icon128.png (128x128)</div>
+            <button class="download-btn" onclick="downloadIcon(128)">Download 128x128</button>
+        </div>
+    </div>
+
+    <script>
+        function downloadIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Create yellow background circle
+            ctx.fillStyle = '#ffd700';
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2 - 2, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Add black border
+            ctx.strokeStyle = '#1a1a1a';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            // Add black 'n' letter
+            ctx.fillStyle = '#1a1a1a';
+            ctx.font = `bold ${size * 0.6}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('n', size/2, size/2);
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.download = `icon${size}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html> 

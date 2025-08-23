@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitor Pro</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-text">n</span>
+            </div>
+            <h1 class="title">Network Monitor Pro</h1>
+            <button id="pinButton" class="pin-button" title="Pin Extension">
+                <span class="pin-arrow">↗</span>
+            </button>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="monitor">Monitor</button>
+            <button class="tab-btn" data-tab="insights">Insights</button>
+            <button class="tab-btn" data-tab="settings">Settings</button>
+            <button class="tab-btn" data-tab="about">About</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Monitor Tab -->
+            <div id="monitor" class="tab-pane active">
+                <div class="monitor-controls">
+                    <div class="power-section">
+                        <div class="power-button-container">
+                                                    <button id="monitoringToggle" class="power-button">
+                            <div class="power-icon">⏯</div>
+                            <div class="power-text">POWER</div>
+                        </button>
+                        </div>
+                        <div class="power-status">
+                            <span class="status-label">Status:</span>
+                            <span class="status-value" id="statusValue">OFF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mode-toggle-section">
+                        <span class="mode-label">Monitoring Mode:</span>
+                        <div class="mode-toggle">
+                            <input type="checkbox" id="monitoringMode" class="mode-checkbox">
+                            <label for="monitoringMode" class="mode-slider">
+                                <span class="mode-text chrome-text">Chrome</span>
+                                <span class="mode-text device-text">Device</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Network Graph -->
+                <div class="graph-container">
+                    <canvas id="networkGraph" width="300" height="60"></canvas>
+                </div>
+
+                <!-- Data Display -->
+                <div class="data-display">
+                    <div class="data-card clickable" id="sentCard">
+                        <div class="data-label">Data Sent</div>
+                        <div class="data-value" id="dataSent">0.00</div>
+                        <div class="data-unit" id="dataUnit">MB</div>
+                        <div class="card-menu" id="sentMenu">
+                            <div class="menu-header">Sent Data Details</div>
+                            <div class="menu-item">
+                                <span class="menu-label">Packets Sent:</span>
+                                <span class="menu-value" id="sentPackets">0</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-label">Avg Packet Size:</span>
+                                <span class="menu-value" id="avgSentSize">0 B</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-label">Peak Rate:</span>
+                                <span class="menu-value" id="peakSentRate">0 B/s</span>
+                            </div>
+                            <div class="menu-note">More features coming soon...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card clickable" id="receivedCard">
+                        <div class="data-label">Data Received</div>
+                        <div class="data-value" id="dataReceived">0.00</div>
+                        <div class="data-unit" id="dataUnit2">MB</div>
+                        <div class="card-menu" id="receivedMenu">
+                            <div class="menu-header">Received Data Details</div>
+                            <div class="menu-item">
+                                <span class="menu-label">Packets Received:</span>
+                                <span class="menu-value" id="receivedPackets">0</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-label">Avg Packet Size:</span>
+                                <span class="menu-value" id="avgReceivedSize">0 B</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-label">Peak Rate:</span>
+                                <span class="menu-value" id="peakReceivedRate">0 B/s</span>
+                            </div>
+                            <div class="menu-note">More features coming soon...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card total clickable" id="totalCard">
+                        <div class="data-label">Total Data</div>
+                        <div class="data-value" id="dataTotal">0.00</div>
+                        <div class="data-unit" id="dataUnit3">MB</div>
+                        <div class="card-menu" id="totalMenu">
+                            <div class="menu-header">Total Data Overview</div>
+                            <div class="menu-item">
+                                <span class="menu-label">Combined Packets:</span>
+                                <span class="menu-value" id="totalPackets">0</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-label">Avg Packet Size:</span>
+                                <span class="menu-value" id="avgTotalSize">0 B</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-label">Data Efficiency:</span>
+                                <span class="menu-value" id="dataEfficiency">0%</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-label">Peak Usage:</span>
+                                <span class="menu-value" id="peakUsage">0</span>
+                            </div>
+                            <div class="menu-item">
+                                <button class="insights-btn" id="openInsightsBtn">View Detailed Insights</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dedicated Insights Button -->
+                    <div class="insights-button-container">
+                        <button class="insights-access-btn" id="dedicatedInsightsBtn">
+                            View All Packet Insights
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Packet Count -->
+                <div class="packet-info">
+                    <div class="packet-label">Packets Processed:</div>
+                    <div class="packet-count" id="packetCount">0</div>
+                </div>
+
+                <!-- Data Units Selector -->
+                <div class="units-section">
+                    <label for="dataUnits" class="units-label">Data Units:</label>
+                    <select id="dataUnits" class="units-selector">
+                        <option value="B">Bytes (B)</option>
+                        <option value="KB">Kilobytes (KB)</option>
+                        <option value="MB">Megabytes (MB)</option>
+                        <option value="GB">Gigabytes (GB)</option>
+                        <option value="TB">Terabytes (TB)</option>
+                        <option value="PB">Petabytes (PB)</option>
+                    </select>
+                </div>
+
+                            <!-- Network Speed Display -->
+            <div class="speed-section">
+                <div class="speed-card clickable" id="speedCard">
+                    <div class="speed-label">Network Speed Monitor</div>
+                    <div class="speed-details">
+                        <div class="speed-detail-item">
+                            <span class="detail-label">Download:</span>
+                            <span id="downloadSpeed" class="detail-value">0.00 Mbps</span>
+                        </div>
+                        <div class="speed-detail-item">
+                            <span class="detail-label">Upload:</span>
+                            <span id="uploadSpeed" class="detail-value">0.00 Mbps</span>
+                        </div>
+                    </div>
+                    <div class="speed-toggle">
+                        <span class="toggle-label">Speed Monitoring:</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="speedToggle" class="speed-checkbox">
+                            <label for="speedToggle" class="speed-slider"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reset Button -->
+            <div class="reset-section">
+                <button id="resetData" class="reset-btn">Reset Data</button>
+            </div>
+        </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-pane">
+
+                <div class="settings-section">
+                    <h3>Widget</h3>
+                    <div class="setting-item">
+                        <label for="enableWidget">Enable floating widget:</label>
+                        <label class="switch">
+                            <input type="checkbox" id="enableWidget">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="widget-info">
+                        <p>Creates a small floating overlay in the top-right corner of Chrome</p>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Appearance</h3>
+                    <div class="setting-item">
+                        <label for="colorTheme">Color Theme:</label>
+                        <select id="colorTheme">
+                            <option value="yellow">Yellow (Default)</option>
+                            <option value="white">White</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Advanced</h3>
+                    <div class="setting-item">
+                        <label for="networkTestProvider">Network Test Provider:</label>
+                        <select id="networkTestProvider">
+                            <option value="none">None (Local Monitoring Only)</option>
+                            <option value="speedtest">Speedtest.net (API Ready)</option>
+                            <option value="fast">Fast.com (API Ready)</option>
+                            <option value="custom">Custom API (API Ready)</option>
+                        </select>
+                        <div class="setting-info">
+                            <p><strong>Coming Soon:</strong> Official Speedtest.net and Fast.com API integration for real download/upload speeds.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-actions">
+                    <button class="apply-settings-btn" id="applySettingsBtn">Apply Settings</button>
+                    <button class="reset-defaults-btn" id="resetDefaultsBtn">Reset to Default</button>
+                </div>
+            </div>
+
+            <!-- Insights Tab -->
+            <div id="insights" class="tab-pane">
+                <div class="insights-content">
+                    <div class="insights-header">
+                        <h2>Packet & Data Insights</h2>
+                        <p class="insights-subtitle">Comprehensive analysis of your network activity</p>
+                    </div>
+                    
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon">Trend</div>
+                            <div class="insight-title">Data Trends</div>
+                            <div class="insight-value" id="insightDataTrend">Stable</div>
+                            <div class="insight-description">Network usage pattern analysis</div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-icon">Peak</div>
+                            <div class="insight-title">Peak Performance</div>
+                            <div class="insight-value" id="insightPeakPerformance">0 Mbps</div>
+                            <div class="insight-description">Highest recorded speed</div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-icon">Efficiency</div>
+                            <div class="insight-title">Efficiency Score</div>
+                            <div class="insight-value" id="insightEfficiency">85%</div>
+                            <div class="insight-description">Data transfer efficiency</div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-icon">Packets</div>
+                            <div class="insight-title">Packet Analysis</div>
+                            <div class="insight-value" id="insightPacketAnalysis">Optimal</div>
+                            <div class="insight-description">Packet processing health</div>
+                        </div>
+                        
+
+                    </div>
+                    
+                    <div class="insights-chart">
+                        <h3>Network Activity Timeline</h3>
+                        <canvas id="insightsChart" width="300" height="150"></canvas>
+                    </div>
+                    
+                    <div class="insights-actions">
+                        <button class="insight-action-btn" id="exportInsightsBtn">Export Data</button>
+                        <button class="insight-action-btn" id="resetInsightsBtn">Reset Insights</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Tab -->
+            <div id="about" class="tab-pane">
+                <div class="about-content">
+                    <div class="about-logo">
+                        <span class="logo-text large">n</span>
+                    </div>
+                    
+                    <h2>Network Monitor Pro</h2>
+                    <p class="version">Version 2.3.0</p>
+                    <p class="bug-notice">All major issues resolved in v2.3.0</p>
+                    
+                                <div class="about-links">
+                <a href="https://github.com/Cameloo1" target="_blank" class="about-link">
+                    <span class="link-icon">GitHub</span>
+                    <span class="link-text">GitHub Profile</span>
+                </a>
+                <a href="https://linkedin.com/in/wasif-am/" target="_blank" class="about-link">
+                    <span class="link-icon">LinkedIn</span>
+                    <span class="link-text">LinkedIn Profile</span>
+                </a>
+                <a href="https://buymeacoffee.com/camelo_" target="_blank" class="about-link coffee-link">
+                            <span class="link-icon">Support</span>
+                            <span class="link-text">Buy me a coffee?</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 

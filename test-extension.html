@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitor Pro - Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #005a87;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>Network Monitor Pro - Extension Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Extension Status Check</h2>
+        <p>This page helps verify that the Network Monitor Pro extension is working correctly.</p>
+        
+        <div id="extensionStatus" class="status info">
+            Checking extension status...
+        </div>
+        
+        <button class="test-button" onclick="checkExtension()">Check Extension</button>
+        <button class="test-button" onclick="testNetworkActivity()">Generate Network Activity</button>
+        <button class="test-button" onclick="clearStatus()">Clear Status</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Instructions</h2>
+        <ol>
+            <li>Make sure the Network Monitor Pro extension is installed and enabled</li>
+            <li>Click "Check Extension" to verify the extension is working</li>
+            <li>Click "Generate Network Activity" to create some network traffic</li>
+            <li>Open the extension popup to see the monitoring in action</li>
+            <li>Try changing the color theme and update interval in settings</li>
+            <li>Verify that packet count is incrementing and not stuck at 0</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h2>Expected Behavior</h2>
+        <ul>
+            <li>Extension should be detected and accessible</li>
+            <li>Network activity should be visible in the extension</li>
+            <li>Packet count should increment in real-time</li>
+            <li>Color themes should change immediately</li>
+            <li>Update intervals should be configurable</li>
+            <li>All settings should persist between sessions</li>
+        </ul>
+    </div>
+
+    <script>
+        function updateStatus(message, type = 'info') {
+            const status = document.getElementById('extensionStatus');
+            status.textContent = message;
+            status.className = `status ${type}`;
+        }
+
+        function checkExtension() {
+            updateStatus('Checking extension...', 'info');
+            
+            // Check if extension is accessible
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                updateStatus('Chrome runtime detected. Extension should be accessible.', 'success');
+            } else {
+                updateStatus('Chrome runtime not detected. Extension may not be working.', 'error');
+            }
+        }
+
+        function testNetworkActivity() {
+            updateStatus('Generating network activity...', 'info');
+            
+            // Create some network activity
+            fetch('https://httpbin.org/delay/1')
+                .then(() => {
+                    updateStatus('Network activity generated successfully. Check the extension for updates.', 'success');
+                })
+                .catch(error => {
+                    updateStatus('Failed to generate network activity: ' + error.message, 'error');
+                });
+        }
+
+        function clearStatus() {
+            updateStatus('Status cleared. Ready for testing.', 'info');
+        }
+
+        // Auto-check extension on page load
+        window.addEventListener('load', () => {
+            setTimeout(checkExtension, 1000);
+        });
+    </script>
+</body>
+</html> 
