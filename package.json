@@ -1,0 +1,56 @@
+{
+  "name": "network-monitor-pro",
+  "version": "2.3.0",
+  "description": "Advanced Chrome extension for comprehensive network monitoring with real-time packet analysis, network usage tracking, speed testing, and floating widget overlay - all in one powerful, optimized tool",
+  "main": "background.js",
+  "scripts": {
+    "build": "echo 'Building extension...' && echo 'Extension built successfully!'",
+    "build-icons": "build-icons.bat",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "network-monitoring",
+    "network-analysis",
+    "packet-monitoring",
+    "network-stats",
+    "network-speed-testing",
+    "floating-widget",
+    "real-time-monitoring",
+    "chrome",
+    "extension",
+    "monitoring",
+    "network",
+    "security",
+    "performance",
+    "analytics"
+  ],
+  "author": "Network Monitor Pro Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cameloo1/network-monitor-pro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Cameloo1/network-monitor-pro/issues"
+  },
+  "homepage": "https://github.com/Cameloo1/network-monitor-pro#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "manifest": {
+    "version": 3,
+    "permissions": [
+      "storage",
+      "tabs",
+      "webRequest",
+      "webRequestAuthProvider",
+      "background",
+      "activeTab",
+      "scripting"
+    ]
+  }
+} 
