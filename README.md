@@ -2,51 +2,51 @@
 
 **Advanced network monitoring extension with real-time packet analysis, network usage monitoring, and network speed testing - all in one powerful, optimized tool.**
 
-## 🚀 Version 2.3.0 - Complete Network Monitoring Solution
+## Version 2.3.0 - Complete Network Monitoring Solution
 
 Network Monitor Pro is a comprehensive Chrome extension that provides enterprise-grade network monitoring capabilities with a beautiful, intuitive interface. Monitor your network activity in real-time, analyze packet data, track network performance, and maintain an always-visible network overlay with the floating widget feature.
 
-## ✨ Key Features
+## Key Features
 
-### 🔍 Real-Time Network Monitoring
+### Real-Time Network Monitoring
 - **Dual Monitoring Modes**: Chrome extension traffic and device-level network monitoring
 - **Live Data Tracking**: Real-time monitoring of sent, received, and total data usage
 - **Configurable Updates**: Adjustable monitoring intervals from 200ms to 2000ms
 - **Performance Metrics**: Track network efficiency, trends, and performance patterns
 
-### 📊 Advanced Packet Analysis
+### Advanced Packet Analysis
 - **Comprehensive Packet Counting**: Accurate packet analysis with realistic 512-byte average packet size
 - **Data Direction Analysis**: Separate tracking of sent vs received packets
 - **Byte Conversion**: Automatic conversion between all data units (B, KB, MB, GB, TB, PB)
 - **Historical Data**: Long-term packet and data usage tracking
 
-### 🎯 Floating Widget Overlay
+### Floating Widget Overlay
 - **Always-Visible Monitor**: Small floating widget in the top-right corner of any webpage
 - **Real-Time Updates**: Live network data and speed information updated every second
 - **Interactive Interface**: Drag, resize, minimize, and close the widget as needed
 - **Responsive Design**: Adapts to different screen sizes and devices
 - **Cross-Page Persistence**: Widget state maintained across page navigation
 
-### 📈 Network Speed Testing
+### Network Speed Testing
 - **Real-Time Speed Monitoring**: Live download and upload speed tracking
 - **Speed Calculations**: Accurate Mbps calculations from network data
 - **Performance Trends**: Track speed patterns and network efficiency
 - **Speed Display**: Widget shows current network speed when available
 
-### 🎨 Professional User Interface
+### Professional User Interface
 - **Tabbed Navigation**: Monitor, Insights, Settings, and About tabs
 - **Interactive Data Cards**: Clickable cards with detailed packet information
 - **Popup Pinning**: Pin popup to separate window for always-visible monitoring
 - **Color Themes**: Multiple visual themes (Yellow, White) for customization
 - **Responsive Design**: Optimized for all screen sizes and devices
 
-### ⚙️ Advanced Configuration
+###  Advanced Configuration
 - **Flexible Settings**: Comprehensive configuration options for all features
 - **Persistent Storage**: All settings saved across browser sessions
 - **Export Functionality**: Export network data for external analysis
 - **Performance Optimization**: Configurable update intervals for optimal performance
 
-## 🛠️ Technical Specifications
+##  Technical Specifications
 
 ### Architecture
 - **Manifest V3**: Latest Chrome extension standards for optimal performance
@@ -83,7 +83,7 @@ Network Monitor Pro is a comprehensive Chrome extension that provides enterprise
 - **Storage**: 50MB free space
 - **Network**: Active internet connection for monitoring
 
-## 🚀 Installation
+## Installation
 
 ### Chrome Web Store (Recommended)
 1. Visit the Chrome Web Store
@@ -184,7 +184,7 @@ network-monitor-extension/
 - **Injection Prevention**: Protection against code injection attacks
 - **Error Handling**: Secure error responses without information disclosure
 
-## 🚀 Performance & Optimization
+## Performance & Optimization
 
 ### Memory Management
 - **Efficient Cleanup**: Proper cleanup of all timers and intervals
@@ -198,7 +198,7 @@ network-monitor-extension/
 - **Non-blocking Operations**: Storage operations don't block UI
 - **Efficient DOM Updates**: Minimal DOM manipulation for better performance
 
-## 🔮 Future Roadmap
+## Future Roadmap
 
 ### Planned Features
 - **Advanced Analytics**: Machine learning-based network analysis
@@ -226,7 +226,7 @@ network-monitor-extension/
 - **Version Information**: Specify extension version
 - **Reproduction Steps**: Detailed steps to reproduce issues
 
-## 📞 Support
+## Support
 
 ### Getting Help
 1. **Check Documentation**: Review this README and other documentation files
@@ -240,7 +240,7 @@ network-monitor-extension/
 - **FIXES_SUMMARY.md**: Summary of fixes and improvements
 - **GitHub Repository**: [https://github.com/Cameloo1/network-monitor-pro](https://github.com/Cameloo1/network-monitor-pro)
 
-## 👨‍💻 Developer Contact
+## Developer Contact
 
 - **GitHub**: [https://github.com/Cameloo1](https://github.com/Cameloo1)
 - **LinkedIn**: [https://linkedin.com/in/wasif-am/](https://linkedin.com/in/wasif-am/)
@@ -249,7 +249,7 @@ network-monitor-extension/
 
 This project is open source and available under the MIT License. See the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Chrome Extensions Team**: For Manifest V3 and extension APIs
 - **OWASP**: For security best practices and guidelines
