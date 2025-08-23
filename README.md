@@ -66,7 +66,7 @@ Network Monitor Pro is a comprehensive Chrome extension that provides enterprise
 - **Smart Caching**: Intelligent caching for faster data access
 - **Interval Management**: Optimized timer and update management
 
-## 📱 Compatibility
+## Compatibility
 
 ### Browser Support
 - **Chrome**: 88+ (Manifest V3 support required)
