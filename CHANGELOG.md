@@ -1,9 +1,9 @@
 # Network Monitor Pro - Complete Changelog
 
 ## Version 2.3.0 - Floating Widget & Code Cleanup Update
-**Release Date:** December 2024
+**Release Date:** August 2025
 
-### 🆕 Major New Features
+### Major New Features
 
 #### Floating Widget Overlay
 - **Always-Visible Network Monitor**: Small floating widget in top-right corner of webpages
@@ -23,7 +23,7 @@
 - **Performance Optimized**: Minimal impact on page performance
 - **Security Enhanced**: Secure message handling and validation
 
-### 🐛 Critical Bug Fixes
+### Critical Bug Fixes
 
 #### Data Card Functionality
 - **Fixed Card Menu Display**: Data card menus now open and close properly
@@ -74,7 +74,7 @@
 - **Smart Caching**: Background settings cached for faster access
 - **Non-blocking Operations**: Storage operations don't block UI
 
-### 🎨 User Experience Enhancements
+### User Experience Enhancements
 
 #### Visual Improvements
 - **Professional Interface**: Removed emojis for cleaner appearance
@@ -88,7 +88,7 @@
 - **Intuitive Controls**: Easy-to-understand interface elements
 - **Accessibility**: Better keyboard and screen reader support
 
-### 📁 Files Modified
+### Files Modified
 
 #### Core Files
 - **popup.js** - Major fixes for card functionality, insights button, removed unused methods, fixed packet counting
@@ -107,7 +107,7 @@
 ---
 
 ## Version 2.2.7 - Network Monitoring Foundation
-**Release Date:** November 2024
+**Release Date:** August 2025
 
 ### Core Features Implemented
 - **Real-time Network Monitoring**: Chrome and device monitoring modes
@@ -156,7 +156,7 @@
 ---
 
 ## Version 2.2.0 - Core Functionality Release
-**Release Date:** September 2024
+**Release Date:** June 2025
 
 ### Basic Features
 - **Network Monitoring**: Basic traffic monitoring capabilities
@@ -173,7 +173,7 @@
 ---
 
 ## Version 2.0.0 - Project Foundation
-**Release Date:** August 2024
+**Release Date:** June 2025
 
 ### Project Setup
 - **Repository Creation**: Initial project structure
